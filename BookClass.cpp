@@ -135,7 +135,7 @@ class BookInformationManage
                         if(reco == -1) 
                         {
                             cout << "Couldn't found the book.";
-                            return;
+                            return -1;
                         }
                         InfoDisplay(reco);
                         fflush(stdin);
@@ -152,7 +152,7 @@ class BookInformationManage
                         if(reco == -1) 
                         {
                             cout << "Couldn't found the book.";
-                            return;
+                            return -1;
                         }
                         InfoDisplay(reco);
                         fflush(stdin);
