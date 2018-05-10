@@ -129,9 +129,10 @@ class BookInformationManage
             return true;
         }
 
-        void InfoDisplay(int i)
+        void InfoDisplay()
         {
             i = 0;
+            system("cls");
             cout << setw(16) << setiosflags(ios::left) << "ISBN" 
                  << setw(16) << setiosflags(ios::left) << "BookName" 
                  << setw(16) << setiosflags(ios::left) << "Author" 
@@ -139,7 +140,6 @@ class BookInformationManage
                  << setw(16) << setiosflags(ios::left) << "PublishHouse"
                  << setw(16) << setiosflags(ios::left) << "PublishDate" 
                  << setw(16) << setiosflags(ios::left) << "Price" << endl;
-            i++;
             while(Book[i].ISBN.empty() != true)
             {
                 cout << setw(16) << setiosflags(ios::left) << Book[i].ISBN 
@@ -177,10 +177,10 @@ class BookInformationManage
                         if(reco == -1) 
                         {
                             cout << "Couldn't found the book.";
-                            return -1;
+                            break;
                         }
                         QDisplay(recordISBN);
-                        while(recordISBN.empty == false)
+                        while(recordISBN.empty() == false)
                             recordISBN.pop();
                         fflush(stdin);
                         getchar();
@@ -196,10 +196,10 @@ class BookInformationManage
                         if(reco == -1) 
                         {
                             cout << "Couldn't found the book.";
-                            return -1;
+                            break;
                         }
                         QDisplay(recordName);
-                        while(recordName.empty == false)
+                        while(recordName.empty() == false)
                             recordName.pop();
                         fflush(stdin);
                         getchar();
@@ -215,10 +215,10 @@ class BookInformationManage
                         if(reco == -1) 
                         {
                             cout << "Couldn't found the book.";
-                            return -1;
+                            break;
                         }
                         QDisplay(recordAuthor);
-                        while(recordAuthor.empty == false)
+                        while(recordAuthor.empty() == false)
                             recordAuthor.pop();
                         fflush(stdin);
                         getchar();
@@ -319,15 +319,24 @@ class BookInformationManage
 
         void InfoDel()
         {
+            system("cls");
             i = 0;
             string Pum;
             cout << "Input the ISBN of the book you want to delete:";
             cin >> Pum;
             while(Book[i].ISBN != Pum && Book[i].ISBN.empty() != true)
                 i++;
-            if(Book[i].ISBN.empty() != true)
-                
-            
+            if(Book[i].ISBN.empty() == true)
+            {
+                cout << "Couldn't found the book.";
+                return;
+            }
+            else
+            {
+                for (; Book[i].ISBN.empty() != 0; i++)
+                    Book[i] = Book [i + 1];
+                return;
+            }
         }
         
 };
