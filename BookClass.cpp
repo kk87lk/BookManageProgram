@@ -18,7 +18,7 @@ class BookInformationManage
             string PublishingHouse;
             string PublicationDate;
             double Price;
-        }Book[5000];
+        }Book[5000],Swap[1];
         
         int i = 0;
         queue<int> recordAuthor;
@@ -334,9 +334,41 @@ class BookInformationManage
             else
             {
                 for (; Book[i].ISBN.empty() != 0; i++)
-                    Book[i] = Book [i + 1];
+                    Book [i] = Book [i + 1];
                 return;
             }
         }
         
+        void NameSort(int left, int right)
+        {
+            int ltemp = left, rtemp = right;  
+            string f = Book[(left + right) / 2].BookName;  
+            while (ltemp < rtemp)  
+            {  
+                while (Book[ltemp].BookName < f)  
+                {  
+                    ltemp++;  
+                }  
+                while (Book[rtemp].BookName > f)  
+                {  
+                    rtemp--;  
+                }  
+                if (ltemp < rtemp) {  
+                    string temp = Book[ltemp].BookName;  
+                    Book[ltemp].BookName = Book[rtemp].BookName;  
+                    Book[rtemp].BookName = temp;  
+                    ltemp++;  
+                    rtemp--;  
+                }  
+            }  
+            if (ltemp == rtemp) {  
+                ltemp++;  
+            }  
+            if (left < rtemp) {  
+                NameSort(left, ltemp - 1);  
+            }  
+            if (ltemp < right) {  
+                NameSort(rtemp + 1, right);  
+            }
+        }
 };
