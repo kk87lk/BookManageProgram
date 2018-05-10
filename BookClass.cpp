@@ -2,6 +2,7 @@
 #include <string>
 #include <iomanip>
 #include <queue>
+#include <fstream>
 
 using namespace std;
 
@@ -237,9 +238,95 @@ class BookInformationManage
             }
         }
 
+        int InfoModify()
+        {
+            string ISBNm;
+            cout << "Input the ISBN of the book you want to modify:";
+            cin >> ISBNm;
+            i = 0;
+            while(Book[i].ISBN.empty() != true)
+            {
+                if(Book[i].ISBN == ISBNm)
+                {
+                    int ch = -1;
+                    while (ch != 0)
+                    {
+                        system("cls");
+                        cout << "1--Name." << endl;
+                        cout << "2--Author." << endl;
+                        cout << "3--ClassificationNumber." << endl;
+                        cout << "4--PublishingHouse." << endl;
+                        cout << "5--PublicationDate." << endl;
+                        cout << "6--Price." << endl;
+                        cout << "0--Exit." << endl;
+                        cin >> ch;
+                        switch (ch)
+                        {
+                        case 1:
+                        {
+                            system("cls");
+                            cout << "Input the Name of this book:";
+                            cin >> Book[i].BookName;
+                            break;
+                        };
+                        case 2:
+                        {
+                            system("cls");
+                            cout << "Input the Author of this book:";
+                            cin >> Book[i].Author;
+                            break;
+                        };
+                        case 3:
+                        {
+                            system("cls");
+                            cout << "Input the ClassificationNumber of this book:";
+                            cin >> Book[i].ClassificationNumber;
+                            break;
+                        };
+                        case 4:
+                        {
+                            system("cls");
+                            cout << "Input the PublishingHouse of this book:";
+                            cin >> Book[i].PublishingHouse;
+                            break;
+                        };
+                        case 5:
+                        {
+                            system("cls");
+                            cout << "Input the PublishingDate of this book:";
+                            cin >> Book[i].PublicationDate;
+                            break;
+                        };
+                        case 6:
+                        {
+                            system("cls");
+                            cout << "Input the Price of this book:";
+                            cin >> Book[i].Price;
+                            break;
+                        };
+                        case 0:
+                            return 0;
+                        default:
+                            cout << "Error option.";
+                        }
+                    }
+                }
+                i++;
+            }
+            cout << "Couldn't found the book.";
+            return -1;
+        }
+
         void InfoDel()
         {
-            int n = 0;
+            i = 0;
+            string Pum;
+            cout << "Input the ISBN of the book you want to delete:";
+            cin >> Pum;
+            while(Book[i].ISBN != Pum && Book[i].ISBN.empty() != true)
+                i++;
+            if(Book[i].ISBN.empty() != true)
+                
             
         }
         
