@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
     }
 }
