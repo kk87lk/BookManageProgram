@@ -18,7 +18,7 @@ class BookInformationManage
             string PublishingHouse;
             string PublicationDate;
             double Price;
-        }Book[5000],Swap[1];
+        }Book[5000];
         
         int i = 0;
         queue<int> recordAuthor;
@@ -370,5 +370,49 @@ class BookInformationManage
             if (ltemp < right) {  
                 NameSort(rtemp + 1, right);  
             }
+        }
+
+        bool SaveFile()
+        {
+            ofstream BooksData("BookData.dat");
+            i = 0;
+            while(!Book[i].ISBN.empty())
+            {
+                BooksData << Book[i].ISBN;
+                BooksData << " ";
+                BooksData << Book[i].BookName;
+                BooksData << " ";
+                BooksData << Book[i].Author;
+                BooksData << " ";
+                BooksData << Book[i].ClassificationNumber;
+                BooksData << " ";
+                BooksData << Book[i].PublishingHouse;
+                BooksData << " ";
+                BooksData << Book[i].PublicationDate;
+                BooksData << " ";
+                BooksData << Book[i].Price;
+                BooksData << "\n";
+                i++;
+            }
+            BooksData.close();
+        }
+
+        bool DrawData()
+        {
+            ifstream file("BookData.dat");
+            string ch;
+            i = 0;
+            while(!file.eof())
+            {
+                file >> Book[i].ISBN;
+                file >> Book[i].BookName;
+                file >> Book[i].Author;
+                file >> Book[i].ClassificationNumber;
+                file >> Book[i].PublishingHouse;
+                file >> Book[i].PublicationDate;
+                file >> Book[i].Price;
+                i++;
+            }
+            file.close();
         }
 };
