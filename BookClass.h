@@ -1,3 +1,6 @@
+#ifndef BOOKINFO_H
+#define BOOKINFO_H
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -416,3 +419,5 @@ class BookInformationManage
             file.close();
         }
 };
+
+#endif
