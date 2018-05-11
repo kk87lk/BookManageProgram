@@ -11,7 +11,7 @@ using namespace std;
 
 class BookInformationManage
 {
-    private:
+    public:
         struct BookInformation
         {
             string ISBN;
@@ -22,79 +22,7 @@ class BookInformationManage
             string PublicationDate;
             double Price;
         }Book[5000];
-        
-        int i = 0;
-        queue<int> recordAuthor;
-        queue<int> recordISBN;
-        queue<int> recordName;
-        
-        int QueryISBN(string ISBN)
-        {
-            i = 0;
-            while(Book[i].ISBN.empty() != true)
-            {
-                if(Book[i].ISBN == ISBN)
-                    recordISBN.push(i);
-                i++;
-            }
-            if(recordISBN.empty() == true)
-                return -1;
-            else 
-                return 0;
-        }
-        int QueryName(string name)
-        {
-            i = 0;
-            while(Book[i].BookName.empty() != true)
-            {
-                if(Book[i].BookName == name)
-                    recordName.push(i);
-                i++;
-            }
-            if(recordName.empty() == true)
-                return -1;
-            else 
-                return 0;
-        }
-        int QueryAuthor(string author)
-        {
-            i = 0;
-            while(Book[i].Author.empty() != true)
-            {
-                if(Book[i].Author == author)
-                    recordAuthor.push(i);
-                i++;
-            }
-            if(recordAuthor.empty() == true)
-                return -1;
-            else 
-                return 0;
-        }
-        int QDisplay(queue<int> Q)
-        {
-            int r = 0;
-            cout << setw(16) << setiosflags(ios::left) << "ISBN" 
-                 << setw(16) << setiosflags(ios::left) << "BookName" 
-                 << setw(16) << setiosflags(ios::left) << "Author" 
-                 << setw(16) << setiosflags(ios::left) << "ClassNum"
-                 << setw(16) << setiosflags(ios::left) << "PublishHouse"
-                 << setw(16) << setiosflags(ios::left) << "PublishDate" 
-                 << setw(16) << setiosflags(ios::left) << "Price" << endl;
-            while(Q.empty() == false)
-            {
-                r = Q.front();
-                Q.pop();
-                cout << setw(16) << setiosflags(ios::left) << Book[r].ISBN 
-                     << setw(16) << setiosflags(ios::left) << Book[r].BookName
-                     << setw(16) << setiosflags(ios::left) << Book[r].Author
-                     << setw(16) << setiosflags(ios::left) << Book[r].ClassificationNumber
-                     << setw(16) << setiosflags(ios::left) << Book[r].PublishingHouse
-                     << setw(16) << setiosflags(ios::left) << Book[r].PublicationDate 
-                     << setw(16) << setiosflags(ios::left) << Book[r].Price << endl;
-            }
-        }
     
-    public:
         bool InfoAdd()
         {
             i = 0;
@@ -417,6 +345,79 @@ class BookInformationManage
                 i++;
             }
             file.close();
+        }
+
+    private:
+    
+        int i = 0;
+        queue<int> recordAuthor;
+        queue<int> recordISBN;
+        queue<int> recordName;
+        
+        int QueryISBN(string ISBN)
+        {
+            i = 0;
+            while(Book[i].ISBN.empty() != true)
+            {
+                if(Book[i].ISBN == ISBN)
+                    recordISBN.push(i);
+                i++;
+            }
+            if(recordISBN.empty() == true)
+                return -1;
+            else 
+                return 0;
+        }
+        int QueryName(string name)
+        {
+            i = 0;
+            while(Book[i].BookName.empty() != true)
+            {
+                if(Book[i].BookName == name)
+                    recordName.push(i);
+                i++;
+            }
+            if(recordName.empty() == true)
+                return -1;
+            else 
+                return 0;
+        }
+        int QueryAuthor(string author)
+        {
+            i = 0;
+            while(Book[i].Author.empty() != true)
+            {
+                if(Book[i].Author == author)
+                    recordAuthor.push(i);
+                i++;
+            }
+            if(recordAuthor.empty() == true)
+                return -1;
+            else 
+                return 0;
+        }
+        int QDisplay(queue<int> Q)
+        {
+            int r = 0;
+            cout << setw(16) << setiosflags(ios::left) << "ISBN" 
+                 << setw(16) << setiosflags(ios::left) << "BookName" 
+                 << setw(16) << setiosflags(ios::left) << "Author" 
+                 << setw(16) << setiosflags(ios::left) << "ClassNum"
+                 << setw(16) << setiosflags(ios::left) << "PublishHouse"
+                 << setw(16) << setiosflags(ios::left) << "PublishDate" 
+                 << setw(16) << setiosflags(ios::left) << "Price" << endl;
+            while(Q.empty() == false)
+            {
+                r = Q.front();
+                Q.pop();
+                cout << setw(16) << setiosflags(ios::left) << Book[r].ISBN 
+                     << setw(16) << setiosflags(ios::left) << Book[r].BookName
+                     << setw(16) << setiosflags(ios::left) << Book[r].Author
+                     << setw(16) << setiosflags(ios::left) << Book[r].ClassificationNumber
+                     << setw(16) << setiosflags(ios::left) << Book[r].PublishingHouse
+                     << setw(16) << setiosflags(ios::left) << Book[r].PublicationDate 
+                     << setw(16) << setiosflags(ios::left) << Book[r].Price << endl;
+            }
         }
 };
 
