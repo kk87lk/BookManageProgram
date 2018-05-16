@@ -2,7 +2,5 @@
 
 int main()
 {
-    BookInformationManage Bookinfo;
-    Bookinfo.InfoAdd();
-    Bookinfo.InfoDisplay();
-}
+	
+} 
