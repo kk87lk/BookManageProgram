@@ -21,6 +21,7 @@ class BookInformationManage
         string PublishingHouse;
         string PublicationDate;
         double Price;
+        bool Subscription = false;
     } Book[5000];
 
     bool InfoAdd()
@@ -70,7 +71,9 @@ class BookInformationManage
              << setw(16) << setiosflags(ios::left) << "ClassNum"
              << setw(16) << setiosflags(ios::left) << "PublishHouse"
              << setw(16) << setiosflags(ios::left) << "PublishDate"
-             << setw(16) << setiosflags(ios::left) << "Price" << endl;
+             << setw(16) << setiosflags(ios::left) << "Price"
+             << setw(16) << setiosflags(ios::left) << "Subscription" < < < <
+            endl;
         while (Book[i].ISBN.empty() != true)
         {
             cout << setw(16) << setiosflags(ios::left) << Book[i].ISBN
@@ -79,7 +82,8 @@ class BookInformationManage
                  << setw(16) << setiosflags(ios::left) << Book[i].ClassificationNumber
                  << setw(16) << setiosflags(ios::left) << Book[i].PublishingHouse
                  << setw(16) << setiosflags(ios::left) << Book[i].PublicationDate
-                 << setw(16) << setiosflags(ios::left) << Book[i].Price << endl;
+                 << setw(16) << setiosflags(ios::left) << Book[i].Price
+                 << setw(16) << setiosflags(ios::left) << Book[i].Subscription << endl;
             i++;
         };
         return;
@@ -325,6 +329,8 @@ class BookInformationManage
             BooksData << Book[i].PublicationDate;
             BooksData << " ";
             BooksData << Book[i].Price;
+            BooksData << " ";
+            BooksData << Book[i].Subscription;
             BooksData << "\n";
             i++;
         }
@@ -345,6 +351,7 @@ class BookInformationManage
             file >> Book[i].PublishingHouse;
             file >> Book[i].PublicationDate;
             file >> Book[i].Price;
+            file >> Book[i].Subscription;
             i++;
         }
         file.close();
