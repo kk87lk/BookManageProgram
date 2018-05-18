@@ -23,7 +23,8 @@ class BookInformationManage
         double Price;
         bool Subscription = false;
     } Book[5000];
-
+	int i = 0;
+	
     bool InfoAdd()
     {
         i = 0;
@@ -72,8 +73,7 @@ class BookInformationManage
              << setw(16) << setiosflags(ios::left) << "PublishHouse"
              << setw(16) << setiosflags(ios::left) << "PublishDate"
              << setw(16) << setiosflags(ios::left) << "Price"
-             << setw(16) << setiosflags(ios::left) << "Subscription" < < < <
-            endl;
+             << setw(16) << setiosflags(ios::left) << "Subscription" << endl;
         while (Book[i].ISBN.empty() != true)
         {
             cout << setw(16) << setiosflags(ios::left) << Book[i].ISBN
@@ -357,26 +357,7 @@ class BookInformationManage
         file.close();
     }
 
-    // borrow
-
-    queue<int> recordISBN_b;
-    int QueryISBN_b(string ISBN)
-    {
-        i = 0;
-        while (Book[i].ISBN.empty() != true)
-        {
-            if (Book[i].ISBN == ISBN)
-                recordISBN_b.push(i);
-            i++;
-        }
-        if (recordISBN.empty() == true)
-            return -1;
-        else
-            return 0;
-    }
-
   private:
-    int i = 0;
     queue<int> recordAuthor;
     queue<int> recordISBN;
     queue<int> recordName;

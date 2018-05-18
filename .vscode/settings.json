@@ -3,6 +3,12 @@
         "iostream": "cpp",
         "queue": "cpp",
         "system_error": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "string": "cpp",
+        "xstring": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "xutility": "cpp",
+        "iomanip": "cpp"
     }
 }
