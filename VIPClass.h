@@ -171,7 +171,7 @@ class VIP:BookInformationManage
         return true;
     }
 
-    bool logo() //???
+    bool Logo() //???
     {
         system("cls");
         char *password = new char[20];
@@ -195,7 +195,7 @@ class VIP:BookInformationManage
     bool Borrow()
     {
         system("cls");
-        if (logo() != true)
+        if (Logo() != true)
         {
             cout << "Error Account or Password!";
             return false;
@@ -242,7 +242,7 @@ class VIP:BookInformationManage
     bool Giveback()
     {
         system("cls");
-        if (logo() != true)
+        if (Logo() != true)
         {
             cout << "Error Account or Password!";
             return false;

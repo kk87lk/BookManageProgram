@@ -22,7 +22,7 @@ class BookInformationManage
         string PublicationDate;
         double Price;
         bool Subscription = false;
-    } Book[5000];
+    } static Book[5000];
 	int i = 0;
 	
     bool InfoAdd()
